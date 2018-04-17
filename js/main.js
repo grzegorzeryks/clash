@@ -7,5 +7,6 @@ console.log(animState);
 
 head.addEventListener('click', function(){
     snd.play();
-    head.classList.toggle('run');
+    head.classList.add('run');
+     setTimeout(function(){head.classList.remove('run')}, 1000);
   });

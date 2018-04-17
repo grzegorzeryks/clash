@@ -11,7 +11,7 @@ body {
   height: 240px;
   background: url('../img/warcze.png') left center;
 
-  animation-play-state: paused;
+  /* animation-play-state: paused; */
 
 }
 
