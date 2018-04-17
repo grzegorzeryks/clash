@@ -4,6 +4,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
+  background: url(../img/land2.jpg);
 }
 
 .warcze {
