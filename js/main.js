@@ -1,7 +1,7 @@
 console.log('elo działam');
 
 var head = document.querySelector('.warcze');
-var snd = new Audio("evil.mp3");
+var snd = new Audio("evilsound.mp3");
 var animState = head.style.animationPlayState;
 console.log(animState);
 
