@@ -2,6 +2,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .warcze {
@@ -14,7 +16,7 @@ body {
 }
 
 .run {
-    animation: play 0.8s steps(10) 3;
+    animation: play 0.3s steps(10) 3;
   animation-play-state: running;
 }
 
