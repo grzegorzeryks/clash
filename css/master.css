@@ -1,31 +1,36 @@
 body {
-margin : 0;
+  margin: 0;
 }
 
-/* .warcze {
+.warcze {
   width: 190px;
   height: 240px;
   background: url('../img/warcze.png') left center;
   animation-play-state: paused;
+  position: absolute;
+  visibility: hidden;
+
 }
 
 .run {
-  animation: play 0.3s steps(10) 3;
+  animation: play 0.3s steps(10) 9;
   animation-play-state: running;
-} */
+  visibility: visible;
+}
 
-/* @keyframes play {
+ @keyframes play {
   100% {
-    background-position: -10483px;
+    background-position: -1900px;
   }
-} */
-.container{
+}
+
+.container {
   display: flex;
-  justify-content: center;
+
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  background: url(../img/land2.jpg)  no-repeat;
+  background: url(../img/land2.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -33,21 +38,23 @@ margin : 0;
 }
 
 .slash {
-  width: 938px;
-  height: 921px;
-  background: url('../img/slash.png') left no-repeat;
+  width: 647px;
+  height: 655px;
+  background: url('../img/slash2.png') no-repeat ;
   animation-play-state: paused;
-
+  background-position: 0;
 
 }
 
 .slashRun {
-  animation: slash 0.6s steps(10) 1  running forwards;
-
+  animation: slash 1s steps(16)  running ;
+  /* animation-iteration-count: 1;
+  animation-fill-mode: forwards; */
 }
 
 @keyframes slash {
   100% {
-    background-position: -9620px;
+    background-position: -10340px;
   }
+
 }
