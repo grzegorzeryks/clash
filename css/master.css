@@ -4,25 +4,45 @@ body {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  background: url(../img/land2.jpg);
+  background: url(../img/land2.jpg)  no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-.warcze {
+/* .warcze {
   width: 190px;
   height: 240px;
   background: url('../img/warcze.png') left center;
-
-  /* animation-play-state: paused; */
-
+  animation-play-state: paused;
 }
 
 .run {
-    animation: play 0.3s steps(10) 3;
+  animation: play 0.3s steps(10) 3;
   animation-play-state: running;
+} */
+
+/* @keyframes play {
+  100% {
+    background-position: -10483px;
+  }
+} */
+
+.slash {
+  width: 938px;
+  height: 921px;
+  background: url('../img/slash.png') left no-repeat;
+  animation-play-state: paused;
+
+
 }
 
-@keyframes play {
+.slashRun {
+  animation: slash 0.6s steps(10) 1  running forwards;
+
+}
+
+@keyframes slash {
   100% {
-    background-position: -1900px;
+    background-position: -9620px;
   }
 }
