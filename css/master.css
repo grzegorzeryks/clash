@@ -1,12 +1,5 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  background: url(../img/land2.jpg)  no-repeat;
-  background-position: center;
-  background-size: cover;
+margin : 0;
 }
 
 /* .warcze {
@@ -26,6 +19,18 @@ body {
     background-position: -10483px;
   }
 } */
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background: url(../img/land2.jpg)  no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
 
 .slash {
   width: 938px;
