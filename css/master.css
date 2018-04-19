@@ -1,15 +1,124 @@
-body {
-  margin: 0;
+* {
+  box-sizing: border-box;
 }
 
-.warcze {
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  margin: 0;
+  background: url(../img/land2.jpg) no-repeat;
+  font-family: 'Berkshire Swash', cursive;
+  /* font-family: 'Lato', sans-serif; */
+}
+
+/* header */
+
+header {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+}
+
+.logo {
+  background: url(../img/logo.png) no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 20%;
+  height: 176px;
+  margin: 0 auto;
+  transition: all 0.5s;
+}
+
+/* .logo:hover {
+
+} */
+
+.bar {
+  width: 35%;
+}
+
+.left-bar {
+  float: left;
+  padding: 0 0 0 1%;
+}
+
+.right-bar {
+  position: absolute;
+  padding: 0 1% 0 0;
+  right: 0;
+  top: 0;
+}
+
+.health {
+  border: 1px dashed red;
+  height: 44px;
+  transition: all 1s;
+}
+
+.health-left {
+  margin: 20px 0 0 20px;
+  background: rgb(181, 5, 5);
+  border-radius: 50px;
+  width: 100%;
+}
+
+.health-right {
+  margin: 20px 20px 0 0;
+  background: rgb(181, 5, 5);
+  border-radius: 50px;
+}
+
+.health-left:after {
+  content: "";
+  background: url(../img/skull.png) no-repeat;
+  background-size: contain;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  margin-top: -8px;
+  margin-left: -20px;
+}
+
+.left-bar.bar>span {
+  font-size: 2rem;
+  margin-top: 10px;
+  margin-left: 7px;
+  display: block;
+}
+
+.right-bar.bar>span {
+  font-size: 2rem;
+  margin-top: 10px;
+  margin-right: 7px;
+  display: block;
+  float: right;
+}
+
+.health-right:after {
+  content: "";
+  background: url(../img/skull.png) no-repeat;
+  background-size: contain;
+  height: 60px;
+  width: 60px;
+  right: 0;
+  position: absolute;
+  margin-top: -8px;
+  margin-right: 10px;
+}
+
+/* main stuff */
+
+/* .warcze {
   width: 190px;
   height: 240px;
   background: url('../img/warcze.png') left center;
   animation-play-state: paused;
   position: absolute;
   visibility: hidden;
-
 }
 
 .run {
@@ -18,36 +127,39 @@ body {
   visibility: visible;
 }
 
- @keyframes play {
+@keyframes play {
   100% {
     background-position: -1900px;
   }
-}
+} */
 
 .container {
   display: flex;
-
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  background: url(../img/land2.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
   width: 100%;
 }
 
+/* slash attack */
+
 .slash {
   width: 647px;
   height: 655px;
-  background: url('../img/slash2.png') no-repeat ;
+  background: url('../img/slash2.png') no-repeat;
   animation-play-state: paused;
   background-position: 0;
+  margin-top: -23px;
+  left: 42%;
+  position: absolute;
 
 }
 
 .slashRun {
-  animation: slash 1s steps(16)  running ;
+  animation: slash 1s steps(16) running;
   /* animation-iteration-count: 1;
   animation-fill-mode: forwards; */
 }
@@ -56,5 +168,90 @@ body {
   100% {
     background-position: -10340px;
   }
+}
 
+/* monsta */
+
+.monsta {
+  width: 647px;
+  height: 655px;
+  background: url('../img/monsta.png') no-repeat;
+  animation-play-state: paused;
+  background-position: 0;
+  margin-top: -23px;
+  position: absolute;
+  left: 11%;
+}
+
+.monstaRun {
+  animation: slash 1s steps(16) running;
+  /* animation-iteration-count: 1;
+  animation-fill-mode: forwards; */
+}
+
+@keyframes monstaSlash {
+  100% {
+    background-position: -10340px;
+  }
+}
+
+.fight {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.win{
+  background: url('../img/win.png') no-repeat;
+  width: 60%;
+  height: 60%;
+  background-position: center;
+  background-size: contain;
+  z-index: 1;
+  animation: winner 0.5s steps(2) 3 paused;
+  display:none;
+}
+
+@keyframes winner {
+  50% {
+    height: 100%;
+    width: 100%;
+
+  }
+  100% {
+    height: 50%;
+    width: 50%;
+  }
+}
+
+
+
+/* footer */
+
+footer {
+  width: 100%;
+  height: 117px;
+
+  color: white;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+
+}
+
+.atak {
+  width: 100px;
+  height: 100px;
+  background: black;
+  border-radius: 20px;
+  margin: auto;
+  font-size: 2em;
+  padding: 11px;
+  cursor: cell;
+}
+
+.atak:hover {
+  border: 2px solid rgba(205, 205, 205, 0.52);
 }
