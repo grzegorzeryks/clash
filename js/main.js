@@ -10,7 +10,7 @@ let win = document.querySelector('.win');
 //slash parent
 let atak = document.querySelector('.atak');
 
-atak.addEventListener('click', function() {
+function attack() {
   slashSound.play();
   slash.classList.add('slashRun');
   monsta.classList.add('monstaRun');
@@ -22,12 +22,11 @@ atak.addEventListener('click', function() {
     let hRchange = healthCountRight + '%';
 
     healthLeft.style.width = hRchange;
+    allowAttackClick()
   }, 1400);
   healthCountRight = healthCountRight - 25;
 
-  if (healthCountRight > 0) {
-    return healthCountRight;
-  } else {
+  if(healthCountRight <= 0) {
     setTimeout(() => {
       win.style.display = 'block';
       win.style.animationPlayState = 'running';
@@ -46,7 +45,13 @@ atak.addEventListener('click', function() {
     }, 2000);
 
   }
-atak.removeEventListener('click')
-});
+atak.removeEventListener('click', attack);
+}
 
+
+atak.addEventListener('click', attack );
+
+function allowAttackClick(){
+  atak.addEventListener('click', attack );
+}
 // document.getElementById("p2").style.color = "blue";
