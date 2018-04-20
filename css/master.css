@@ -98,7 +98,7 @@ header {
   float: right;
 }
 
-.health-right:after {
+.health-right::after {
   content: "";
   background: url(../img/skull.png) no-repeat;
   background-size: contain;
@@ -108,6 +108,26 @@ header {
   position: absolute;
   margin-top: -8px;
   margin-right: 10px;
+}
+
+.skullmove::after{
+  content: "";
+  background: url(../img/skull.png) no-repeat;
+  background-size: contain;
+  height: 65px;
+  width: 65px;
+  position: absolute;
+  margin-top: -8px;
+  margin-right: 10px;
+  animation:  skullMove  0.5s  infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes skullMove {
+  100% {
+    height: 70px;
+    width: 70px;
+  }
 }
 
 /* main stuff */

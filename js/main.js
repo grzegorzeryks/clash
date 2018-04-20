@@ -6,52 +6,78 @@ let slash = document.querySelector('.slash');
 let healthLeft = document.querySelector('.health-left');
 let healthCountRight = 100;
 let win = document.querySelector('.win');
-
-//slash parent
 let atak = document.querySelector('.atak');
 
-function attack() {
+//slash parent
+
+function makeAttackAnimationAndUpdateHealthBar() {
   slashSound.play();
   slash.classList.add('slashRun');
   monsta.classList.add('monstaRun');
+  disallowAttackClick();
 
   setTimeout(function() {
     slash.classList.remove('slashRun');
     monsta.classList.remove('monstaRun');
+    healthCountRight = healthCountRight - 50;
+    healthLeft.style.width = healthCountRight + '%';
+    fatality();
+    allowAttackClick();
+  }, 1400); // this time is a delay for health bar animation
+}
 
-    let hRchange = healthCountRight + '%';
+function fatality() {
+  if (healthCountRight === 0) {
+    setTimeout(() => {
+      healthLeft.classList.add('skullmove');
+    },500);
+  }
 
-    healthLeft.style.width = hRchange;
-    allowAttackClick()
-  }, 1400);
-  healthCountRight = healthCountRight - 25;
+}
 
-  if(healthCountRight <= 0) {
+function restoreMonsterToFullHealth() {
+  healthCountRight = 100;
+  let restart = healthCountRight + '%';
+
+  healthLeft.style.width = restart;
+}
+
+//funkcja sprawdzajaca czy życie = 0
+function checkWinner() {
+  if (healthCountRight === 0) {
     setTimeout(() => {
       win.style.display = 'block';
       win.style.animationPlayState = 'running';
       evil.play();
-      healthCountRight = 100;
-      console.log(healthCountRight);
-      let restart = healthCountRight + '%';
+      restoreMonsterToFullHealth();
+      healthLeft.classList.remove('skullmove')
 
-      healthLeft.style.width = restart;
-      //zmień to na podmianke klasy potem
-      //settimeouta do zmiany nunning na paused
       setTimeout(() => {
         win.style.display = 'none';
-
+        ;
       }, 2000)
     }, 2000);
 
   }
-atak.removeEventListener('click', attack);
 }
 
+//głowna funkcja ataku
+function attack() {
 
-atak.addEventListener('click', attack );
+  makeAttackAnimationAndUpdateHealthBar();
+  checkWinner()
 
-function allowAttackClick(){
-  atak.addEventListener('click', attack );
 }
+
+//funkcja dopinajaca atak na klik
+function allowAttackClick() {
+  atak.addEventListener('click', attack);
+}
+// funkcja odpinajaca atak
+function disallowAttackClick() {
+  atak.removeEventListener('click', attack);
+}
+
+allowAttackClick();
+
 // document.getElementById("p2").style.color = "blue";
