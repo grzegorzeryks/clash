@@ -10,7 +10,7 @@ let win = document.querySelector('.win');
 //slash parent
 let atak = document.querySelector('.atak');
 
-atak.addEventListener('click', (function() {
+atak.addEventListener('click', function() {
   slashSound.play();
   slash.classList.add('slashRun');
   monsta.classList.add('monstaRun');
@@ -46,6 +46,7 @@ atak.addEventListener('click', (function() {
     }, 2000);
 
   }
-}));
+atak.removeEventListener('click')
+});
 
 // document.getElementById("p2").style.color = "blue";
