@@ -70,6 +70,8 @@ header {
   margin: 20px 20px 0 0;
   background: rgb(181, 5, 5);
   border-radius: 50px;
+  width: 100%;
+  float: right;
 }
 
 .health-left:after {
@@ -94,8 +96,9 @@ header {
   font-size: 2rem;
   margin-top: 10px;
   margin-right: 7px;
-  display: block;
-  float: right;
+  position: absolute;
+  right: 13px;
+  top: 64px;
 }
 
 .health-right::after {
@@ -104,13 +107,12 @@ header {
   background-size: contain;
   height: 60px;
   width: 60px;
-  right: 0;
+  right: 8px;
   position: absolute;
   margin-top: -8px;
-  margin-right: 10px;
 }
 
-.skullmove::after{
+.skullmove::after {
   content: "";
   background: url(../img/skull.png) no-repeat;
   background-size: contain;
@@ -119,7 +121,7 @@ header {
   position: absolute;
   margin-top: -8px;
   margin-right: 10px;
-  animation:  skullMove  0.5s  infinite;
+  animation: skullMove 0.5s infinite;
   animation-timing-function: ease-in-out;
 }
 
@@ -172,10 +174,8 @@ header {
   background: url('../img/slash2.png') no-repeat;
   animation-play-state: paused;
   background-position: 0;
-  margin-top: -23px;
   left: 42%;
   position: absolute;
-
 }
 
 .slashRun {
@@ -198,7 +198,6 @@ header {
   background: url('../img/monsta.png') no-repeat;
   animation-play-state: paused;
   background-position: 0;
-  margin-top: -23px;
   position: absolute;
   left: 11%;
 }
@@ -221,9 +220,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -40px;
 }
 
-.win{
+.win {
   background: url('../img/win.png') no-repeat;
   width: 60%;
   height: 60%;
@@ -231,14 +231,13 @@ header {
   background-size: contain;
   z-index: 1;
   animation: winner 0.5s steps(2) 3 paused;
-  display:none;
+  display: none;
 }
 
 @keyframes winner {
   50% {
     height: 100%;
     width: 100%;
-
   }
   100% {
     height: 50%;
@@ -246,32 +245,42 @@ header {
   }
 }
 
-
-
 /* footer */
 
 footer {
-  width: 100%;
-  height: 117px;
-
-  color: white;
-  bottom: 0;
-  position: absolute;
-  display: flex;
-
+  width: 50%;
+      height: 117px;
+      color: white;
+      bottom: 0;
+      position: absolute;
+      display: flex;
+      background: rgb(159, 6, 6);
+      border-radius: 20px;
+      margin-bottom: -77px;
+      border: 2px solid black;
 }
 
 .atak {
   width: 100px;
-  height: 100px;
+  height: 122px;
   background: black;
   border-radius: 20px;
   margin: auto;
-  font-size: 2em;
-  padding: 11px;
+  font-size: 1.6em;
+  padding:  5px 5px 5px 18px;
   cursor: cell;
+  margin-top: -38px;
+  transition: all 0.3s;
+}
+.skullAtak{
+  background: url('../img/skulla.png') no-repeat;
+  display:block;
+  background-size: contain;
+  width: 70%;
+  height: 70%;
 }
 
 .atak:hover {
-  border: 2px solid rgba(205, 205, 205, 0.52);
+
+  margin-top: -58px;
 }

@@ -19,7 +19,7 @@ function makeAttackAnimationAndUpdateHealthBar() {
   setTimeout(function() {
     slash.classList.remove('slashRun');
     monsta.classList.remove('monstaRun');
-    healthCountRight = healthCountRight - 50;
+    healthCountRight = healthCountRight - 25;
     healthLeft.style.width = healthCountRight + '%';
     fatality();
     allowAttackClick();
@@ -30,7 +30,7 @@ function fatality() {
   if (healthCountRight === 0) {
     setTimeout(() => {
       healthLeft.classList.add('skullmove');
-    },500);
+    }, 500);
   }
 
 }
@@ -53,8 +53,7 @@ function checkWinner() {
       healthLeft.classList.remove('skullmove')
 
       setTimeout(() => {
-        win.style.display = 'none';
-        ;
+        win.style.display = 'none';;
       }, 2000)
     }, 2000);
 
@@ -65,7 +64,7 @@ function checkWinner() {
 function attack() {
 
   makeAttackAnimationAndUpdateHealthBar();
-  checkWinner()
+  checkWinner();
 
 }
 
@@ -77,7 +76,7 @@ function allowAttackClick() {
 function disallowAttackClick() {
   atak.removeEventListener('click', attack);
 }
-
+//
 allowAttackClick();
 
 // document.getElementById("p2").style.color = "blue";
