@@ -54,7 +54,6 @@ header {
 }
 
 .health {
-  border: 1px dashed red;
   height: 44px;
   transition: all 1s;
 }
@@ -133,27 +132,6 @@ header {
 }
 
 /* main stuff */
-
-/* .warcze {
-  width: 190px;
-  height: 240px;
-  background: url('../img/warcze.png') left center;
-  animation-play-state: paused;
-  position: absolute;
-  visibility: hidden;
-}
-
-.run {
-  animation: play 0.3s steps(10) 9;
-  animation-play-state: running;
-  visibility: visible;
-}
-
-@keyframes play {
-  100% {
-    background-position: -1900px;
-  }
-} */
 
 .container {
   display: flex;
@@ -249,38 +227,38 @@ header {
 
 footer {
   width: 50%;
-      height: 117px;
-      color: white;
-      bottom: 0;
-      position: absolute;
-      display: flex;
-      background: rgb(159, 6, 6);
-      border-radius: 20px;
-      margin-bottom: -77px;
-      border: 2px solid black;
+  height: 117px;
+  color: white;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  background: rgb(159, 6, 6);
+  border-radius: 20px;
+  margin-bottom: -77px;
+  border: 2px solid black;
 }
 
-.atak {
+.action {
   width: 100px;
   height: 122px;
   background: black;
   border-radius: 20px;
   margin: auto;
   font-size: 1.6em;
-  padding:  5px 5px 5px 18px;
+  padding: 5px 5px 5px 18px;
   cursor: cell;
   margin-top: -38px;
   transition: all 0.3s;
 }
-.skullAtak{
+
+.skullAtak {
   background: url('../img/skulla.png') no-repeat;
-  display:block;
+  display: block;
   background-size: contain;
   width: 70%;
   height: 70%;
 }
 
-.atak:hover {
-
+.action:hover {
   margin-top: -58px;
 }

@@ -1,33 +1,39 @@
+/*jshint esversion: 6 */
+
 let head = document.querySelector('.warcze');
-let evil = new Audio('evilsound.mp3');
-let slashSound = new Audio('slash.wav');
 let monsta = document.querySelector('.monsta');
 let slash = document.querySelector('.slash');
 let healthLeft = document.querySelector('.health-left');
-let healthCountRight = 100;
+let healthCountLeft = 100;
 let win = document.querySelector('.win');
 let atak = document.querySelector('.atak');
 
-//slash parent
+let evil = new Audio('./snd/evilsound.mp3');
+let slashSound = new Audio('./snd/slash.wav');
 
+// atak vs feint choice
 function makeAttackAnimationAndUpdateHealthBar() {
   slashSound.play();
   slash.classList.add('slashRun');
   monsta.classList.add('monstaRun');
-  disallowAttackClick();
+  disallowAttackClick(); //odpinam funkcje
 
   setTimeout(function() {
     slash.classList.remove('slashRun');
     monsta.classList.remove('monstaRun');
-    healthCountRight = healthCountRight - 25;
-    healthLeft.style.width = healthCountRight + '%';
-    fatality();
-    allowAttackClick();
+    healthCountLeft = healthCountLeft - 25;
+    healthLeft.style.width = healthCountLeft + '%';
+    fatality(); //checking if health === 0
+    allowAttackClick(); // podpięcie ponowne animacji ataku
   }, 1400); // this time is a delay for health bar animation
 }
 
+
+
+
+
 function fatality() {
-  if (healthCountRight === 0) {
+  if (healthCountLeft === 0) {
     setTimeout(() => {
       healthLeft.classList.add('skullmove');
     }, 500);
@@ -35,29 +41,31 @@ function fatality() {
 
 }
 
-function restoreMonsterToFullHealth() {
-  healthCountRight = 100;
-  let restart = healthCountRight + '%';
 
-  healthLeft.style.width = restart;
-}
 
 //funkcja sprawdzajaca czy życie = 0
 function checkWinner() {
-  if (healthCountRight === 0) {
+  if (healthCountLeft === 0) {
     setTimeout(() => {
       win.style.display = 'block';
       win.style.animationPlayState = 'running';
       evil.play();
       restoreMonsterToFullHealth();
-      healthLeft.classList.remove('skullmove')
+      healthLeft.classList.remove('skullmove');
 
       setTimeout(() => {
-        win.style.display = 'none';;
-      }, 2000)
+        win.style.display = 'none';
+      }, 2000);
     }, 2000);
 
   }
+}
+
+function restoreMonsterToFullHealth() {
+  healthCountLeft = 100;
+  let restart = healthCountLeft + '%';
+
+  healthLeft.style.width = restart;
 }
 
 //głowna funkcja ataku
@@ -76,7 +84,5 @@ function allowAttackClick() {
 function disallowAttackClick() {
   atak.removeEventListener('click', attack);
 }
-//
+// odpalamy dodanie funkcji
 allowAttackClick();
-
-// document.getElementById("p2").style.color = "blue";
