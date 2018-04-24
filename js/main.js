@@ -2,24 +2,27 @@
 
 let head = document.querySelector('.warcze');
 let monsta = document.querySelector('.monsta');
-let slash = document.querySelector('.slash');
+let hero = document.querySelector('.hero');
 let healthLeft = document.querySelector('.health-left');
 let healthCountLeft = 100;
 let win = document.querySelector('.win');
 let atak = document.querySelector('.atak');
+let defend = document.querySelector('.defend');
 
+//sounds
 let evil = new Audio('./snd/evilsound.mp3');
-let slashSound = new Audio('./snd/slash.wav');
+let heroAtakSound = new Audio('./snd/slash.wav');
+let heroBlockSound = new Audio('./snd/colision.mp3');
 
 // atak vs feint choice
-function makeAttackAnimationAndUpdateHealthBar() {
-  slashSound.play();
-  slash.classList.add('slashRun');
+function attackVsFeint() {
+  heroAtakSound.play();
+  hero.classList.add('slashRun');
   monsta.classList.add('monstaRun');
   disallowAttackClick(); //odpinam funkcje
 
   setTimeout(function() {
-    slash.classList.remove('slashRun');
+    hero.classList.remove('slashRun');
     monsta.classList.remove('monstaRun');
     healthCountLeft = healthCountLeft - 25;
     healthLeft.style.width = healthCountLeft + '%';
@@ -28,8 +31,21 @@ function makeAttackAnimationAndUpdateHealthBar() {
   }, 1400); // this time is a delay for health bar animation
 }
 
+//attack vs block
+function attackVsBlock() {
+
+  hero.classList.add('defendRun');
+  heroBlockSound.play();
+  disallowDefendClick();
+  setTimeout(function(){
+    hero.classList.remove('defendRun');
+    allowDefendClick();
+  }, 1400);
+}
 
 
+//attack vs attack
+//
 
 
 function fatality() {
@@ -64,17 +80,28 @@ function checkWinner() {
 function restoreMonsterToFullHealth() {
   healthCountLeft = 100;
   let restart = healthCountLeft + '%';
-
   healthLeft.style.width = restart;
 }
 
-//głowna funkcja ataku
+//głowna funkcja ataku (atak vs feint)
 function attack() {
-
-  makeAttackAnimationAndUpdateHealthBar();
+  attackVsFeint();
   checkWinner();
-
 }
+
+//głowna funkcja obrony
+function defense() {
+  attackVsBlock();
+}
+
+function allowDefendClick() {
+  defend.addEventListener('click', defense);
+}
+
+function disallowDefendClick(){
+  defend.removeEventListener('click', defense);
+}
+
 
 //funkcja dopinajaca atak na klik
 function allowAttackClick() {
@@ -84,5 +111,8 @@ function allowAttackClick() {
 function disallowAttackClick() {
   atak.removeEventListener('click', attack);
 }
+
+
 // odpalamy dodanie funkcji
 allowAttackClick();
+allowDefendClick();

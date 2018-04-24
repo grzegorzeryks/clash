@@ -146,7 +146,7 @@ header {
 
 /* slash attack */
 
-.slash {
+.hero {
   width: 647px;
   height: 655px;
   background: url('../img/slash2.png') no-repeat;
@@ -163,6 +163,17 @@ header {
 }
 
 @keyframes slash {
+  100% {
+    background-position: -10340px;
+  }
+}
+
+.defendRun {
+  background: url('../img/defend.png') no-repeat;
+  animation: def 1s steps(16) running;
+}
+
+@keyframes def {
   100% {
     background-position: -10340px;
   }
@@ -239,13 +250,13 @@ footer {
 }
 
 .action {
-  width: 100px;
+  width: 110px;
   height: 122px;
   background: black;
   border-radius: 20px;
   margin: auto;
   font-size: 1.6em;
-  padding: 5px 5px 5px 18px;
+  padding: 5px 5px 5px 5px;
   cursor: cell;
   margin-top: -38px;
   transition: all 0.3s;
