@@ -13,6 +13,7 @@ let defend = document.querySelector('.defend');
 let evil = new Audio('./snd/evilsound.mp3');
 let heroAtakSound = new Audio('./snd/slash.wav');
 let heroBlockSound = new Audio('./snd/colision.mp3');
+let fatalitySnd = new Audio('./snd/fatality.mp3');
 
 // atak vs feint choice
 function attackVsFeint() {
@@ -50,6 +51,7 @@ function attackVsBlock() {
 
 function fatality() {
   if (healthCountLeft === 0) {
+    fatalitySnd.play();
     setTimeout(() => {
       healthLeft.classList.add('skullmove');
     }, 500);
