@@ -167,13 +167,25 @@ header {
     background-position: -10340px;
   }
 }
-
+/* defend move */
 .defendRun {
   background: url('../img/defend.png') no-repeat;
   animation: def 1s steps(16) running;
 }
 
 @keyframes def {
+  100% {
+    background-position: -10340px;
+  }
+}
+/* feint move */
+
+.feintRun {
+  background: url('../img/feint.png') no-repeat;
+  animation: feint 1s steps(16) running;
+}
+
+@keyframes feint {
   100% {
     background-position: -10340px;
   }
@@ -202,7 +214,7 @@ header {
     background-position: -10340px;
   }
 }
-
+/* container for characters */
 .fight {
   width: 80%;
   height: 100%;

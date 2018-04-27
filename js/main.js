@@ -8,7 +8,7 @@ let healthCountLeft = 100;
 let win = document.querySelector('.win');
 let atak = document.querySelector('.atak');
 let defend = document.querySelector('.defend');
-
+let feint = document.querySelector('.feint')
 //sounds
 let evil = new Audio('./snd/evilsound.mp3');
 let heroAtakSound = new Audio('./snd/slash.wav');
@@ -38,14 +38,23 @@ function attackVsBlock() {
   hero.classList.add('defendRun');
   heroBlockSound.play();
   disallowDefendClick();
-  setTimeout(function(){
+  setTimeout(function() {
     hero.classList.remove('defendRun');
     allowDefendClick();
   }, 1400);
 }
 
 
-//attack vs attack
+//feint vs defence
+function feintVsBlock() {
+  hero.classList.add('feintRun');
+  heroAtakSound.play();
+  disallowFeintClick();
+  setTimeout(function() {
+    hero.classList.remove('feintRun');
+    allowFeintClick();
+  }, 1400);
+}
 
 
 
@@ -92,18 +101,34 @@ function attack() {
 }
 
 //głowna funkcja obrony
-function defense() {
+function defenseAction() {
   attackVsBlock();
 }
 
+//głowna funkcja zmyłki
+function feintAction() {
+  console.log('działa');
+  feintVsBlock();
+  checkWinner();
+}
+// funkcje dopinające i odpinające defendAction
 function allowDefendClick() {
-  defend.addEventListener('click', defense);
+  defend.addEventListener('click', defenseAction);
 }
 
-function disallowDefendClick(){
-  defend.removeEventListener('click', defense);
+function disallowDefendClick() {
+  defend.removeEventListener('click', defenseAction);
 }
 
+// funkcje dopinające i odpinające feintAction
+function allowFeintClick() {
+
+  feint.addEventListener('click', feintAction);
+}
+
+function disallowFeintClick() {
+  feint.removeEventListener('click', feintAction);
+}
 
 //funkcja dopinajaca atak na klik
 function allowAttackClick() {
@@ -115,6 +140,7 @@ function disallowAttackClick() {
 }
 
 
-// odpalamy dodanie funkcji
+// odpalamy funkcje
 allowAttackClick();
 allowDefendClick();
+allowFeintClick();
