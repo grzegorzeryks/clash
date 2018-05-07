@@ -200,7 +200,7 @@ header {
   animation-play-state: paused;
   background-position: 0;
   position: absolute;
-  left: 11%;
+  left: 24%;
 }
 
 .monstaRun {
@@ -249,39 +249,47 @@ header {
 /* footer */
 
 footer {
-  width: 50%;
+  width: 40%;
   height: 117px;
   color: white;
   bottom: 0;
   position: fixed;
   display: flex;
-  background: rgb(159, 6, 6);
+  /* background: rgb(159, 6, 6); */
   border-radius: 20px;
-  margin-bottom: -77px;
-  border: 2px solid black;
+  margin-bottom: 2px;
+
 }
 
 .action {
-  width: 110px;
+  width: 122px;
   height: 122px;
   background: black;
-  border-radius: 20px;
   margin: auto;
   font-size: 1.6em;
   padding: 5px 5px 5px 5px;
   cursor: cell;
   margin-top: -38px;
   transition: all 0.3s;
+  text-align: center;
+  border-radius: 20px;
+}
+.action span {
+
+  display: table;
+  width:114px;
+
 }
 
 .skullAtak {
   background: url('../img/skulla.png') no-repeat;
   display: block;
   background-size: contain;
-  width: 70%;
+  background-position: center;
   height: 70%;
 }
 
 .action:hover {
+    color: red;
   margin-top: -58px;
 }
