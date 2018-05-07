@@ -154,12 +154,14 @@ header {
   background-position: 0;
   left: 42%;
   position: absolute;
+  transition: left 1s;
 }
 
 .slashRun {
   animation: slash 1s steps(16) running;
   /* animation-iteration-count: 1;
   animation-fill-mode: forwards; */
+    left: 39%;
 }
 
 @keyframes slash {
@@ -188,6 +190,7 @@ header {
 @keyframes feint {
   100% {
     background-position: -10340px;
+
   }
 }
 
@@ -207,6 +210,7 @@ header {
   animation: slash 1s steps(16) running;
   /* animation-iteration-count: 1;
   animation-fill-mode: forwards; */
+
 }
 
 @keyframes monstaSlash {
