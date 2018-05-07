@@ -286,8 +286,15 @@ footer {
 
 }
 
-.skullAtak {
-  background: url('../img/skulla.png') no-repeat;
+.iconSkull{
+    background: url('../img/skulla.png') no-repeat;
+}
+
+.iconDefend{
+    background: url('../img/shield.png') no-repeat;
+}
+
+.actionIcon {
   display: block;
   background-size: contain;
   background-position: center;
@@ -300,6 +307,6 @@ footer {
   margin-top: -58px;
 
 }
-.action .skullAtak:hover {
+.action .actionIcon:hover {
   height: 80%;
 }
