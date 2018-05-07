@@ -225,7 +225,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -40px;
+  margin-top: -82px;
 }
 
 .win {
@@ -237,6 +237,7 @@ header {
   z-index: 1;
   animation: winner 0.5s steps(2) 3 paused;
   display: none;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes winner {
@@ -291,9 +292,14 @@ footer {
   background-size: contain;
   background-position: center;
   height: 70%;
+  transition: all 0.5s;
 }
 
 .action:hover {
     color: red;
   margin-top: -58px;
+
+}
+.action .skullAtak:hover {
+  height: 80%;
 }
