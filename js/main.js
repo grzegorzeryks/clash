@@ -17,23 +17,20 @@ let fatalitySnd = new Audio('./snd/fatality.mp3');
 
 let myAction = 0;
 
-// random enemy attack function
-function randomAttack(){
-  let enemy = Math.floor(Math.random() * 2);
-  if (enemy === 0) {
-    console.log('attack');
-  }
-  else if (enemy === 1) {
+// random enemyAction attack function
+function randomAttack() {
+  let enemyAction = Math.floor(Math.random() * 3);
+  if (enemyAction === myAction) {
+    console.log('attack vs feint');
+  } else if (enemyAction === 1) {
     console.log('defend');
-  }
-  else if (enemy === 2){
+  } else if (enemyAction === 2) {
     console.log('feint');
   }
-  console.log(enemy);
+  console.log(enemyAction + ' enemy action');
 }
 
-//check randomAttack
-randomAttack();
+
 
 // atak vs feint choice
 function attackVsFeint() {
@@ -117,9 +114,10 @@ function restoreMonsterToFullHealth() {
 //głowna funkcja ataku (atak vs feint)
 function attack() {
   myAction = 1;
+  randomAttack(); //odpalamy funkcje porwonujaca atak z randomem przeciwnika
   attackVsFeint();
   checkWinner();
-  console.log(myAction);
+  console.log(myAction + ' my action');
 }
 
 //głowna funkcja obrony
