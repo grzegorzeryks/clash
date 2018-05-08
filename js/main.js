@@ -24,11 +24,11 @@ let myAction = 0;
 function randomAttack() {
   let enemyAction = Math.floor(Math.random() * 3);
   if (enemyAction === 0 && myAction === 1) {
-      attackVsFeint();
+    attackVsFeint();
   } else if (enemyAction === 1 && myAction === 0) {
-      feintVsBlock();
-  } else if (enemyAction === 2) {
-    console.log('feint');
+    feintVsBlock();
+  } else if (enemyAction === 1 && myAction === 2) {
+    attackVsBlock();
   }
   console.log(enemyAction + ' enemy action');
 }
@@ -125,11 +125,14 @@ function attack() {
 
 //głowna funkcja obrony
 function defenseAction() {
-  attackVsBlock();
+  myAction = 2;
+  randomAttack();
+  checkWinner();
 }
 
 //głowna funkcja zmyłki
 function feintAction() {
+  myAction = 0;
   randomAttack();
   checkWinner();
 }
