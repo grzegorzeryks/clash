@@ -16,14 +16,17 @@ let heroBlockSound = new Audio('./snd/colision.mp3');
 let fatalitySnd = new Audio('./snd/fatality.mp3');
 
 let myAction = 0;
+// enemyaction = 0 feint
+// enemy action  = 1 attack
+//enemy action = 2 defend
 
 // random enemyAction attack function
 function randomAttack() {
   let enemyAction = Math.floor(Math.random() * 3);
-  if (enemyAction === myAction) {
-    console.log('attack vs feint');
-  } else if (enemyAction === 1) {
-    console.log('defend');
+  if (enemyAction === 0 && myAction === 1) {
+      attackVsFeint();
+  } else if (enemyAction === 1 && myAction === 0) {
+      feintVsBlock();
   } else if (enemyAction === 2) {
     console.log('feint');
   }
@@ -115,7 +118,7 @@ function restoreMonsterToFullHealth() {
 function attack() {
   myAction = 1;
   randomAttack(); //odpalamy funkcje porwonujaca atak z randomem przeciwnika
-  attackVsFeint();
+
   checkWinner();
   console.log(myAction + ' my action');
 }
@@ -127,8 +130,7 @@ function defenseAction() {
 
 //głowna funkcja zmyłki
 function feintAction() {
-  console.log('działa');
-  feintVsBlock();
+  randomAttack();
   checkWinner();
 }
 // funkcje dopinające i odpinające defendAction
