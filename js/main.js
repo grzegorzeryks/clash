@@ -8,12 +8,32 @@ let healthCountLeft = 100;
 let win = document.querySelector('.win');
 let atak = document.querySelector('.atak');
 let defend = document.querySelector('.defend');
-let feint = document.querySelector('.feint')
+let feint = document.querySelector('.feint');
 //sounds
 let evil = new Audio('./snd/evilsound.mp3');
 let heroAtakSound = new Audio('./snd/slash.wav');
 let heroBlockSound = new Audio('./snd/colision.mp3');
 let fatalitySnd = new Audio('./snd/fatality.mp3');
+
+let myAction = 0;
+
+// random enemy attack function
+function randomAttack(){
+  let enemy = Math.floor(Math.random() * 2);
+  if (enemy === 0) {
+    console.log('attack');
+  }
+  else if (enemy === 1) {
+    console.log('defend');
+  }
+  else if (enemy === 2){
+    console.log('feint');
+  }
+  console.log(enemy);
+}
+
+//check randomAttack
+randomAttack();
 
 // atak vs feint choice
 function attackVsFeint() {
@@ -96,8 +116,10 @@ function restoreMonsterToFullHealth() {
 
 //głowna funkcja ataku (atak vs feint)
 function attack() {
+  myAction = 1;
   attackVsFeint();
   checkWinner();
+  console.log(myAction);
 }
 
 //głowna funkcja obrony
