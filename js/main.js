@@ -1,6 +1,5 @@
 /*jshint esversion: 6 */
 
-let head = document.querySelector('.warcze');
 let monsta = document.querySelector('.monsta');
 let hero = document.querySelector('.hero');
 let healthLeft = document.querySelector('.health-left');

@@ -204,6 +204,7 @@ header {
   background-position: 0;
   position: absolute;
   left: 24%;
+  z-index: 1;
 }
 
 .monstaRun {
