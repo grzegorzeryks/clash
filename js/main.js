@@ -1,5 +1,7 @@
 /*jshint esversion: 6 */
 
+let asideMenu = document.querySelector('aside');
+let menuButton = document.querySelector('.aside-button');
 let monsta = document.querySelector('.monsta');
 let hero = document.querySelector('.hero');
 let healthLeft = document.querySelector('.health-left');
@@ -165,14 +167,18 @@ function disallowAttackClick() {
 
 //Menu code
 
-let asideMenu = document.querySelector('aside');
-let menuButton = document.querySelectorAll('.aside-button');
-console.log(menuButton);
-menuButton.addEventListener('click', function(){
-  console.log('elo');
-  asideMenu.style.left = '0px';
-});
 
+console.log(menuButton);
+menuButton.addEventListener('click', showMenu );
+
+function showMenu () {
+  if (asideMenu.style.left !== '0px') {
+      asideMenu.style.left = '0px';
+  }
+ else {
+   asideMenu.style.left = '-50px';
+ }
+}
 
 
 // odpalamy funkcje

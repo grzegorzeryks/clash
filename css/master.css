@@ -139,6 +139,7 @@ aside {
   width: 50px;
   background: rgb(176, 32, 0);
   left: -50px;
+  transition: all 1s;
 }
 
 .aside-button {
