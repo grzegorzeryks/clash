@@ -163,6 +163,17 @@ function disallowAttackClick() {
   atak.removeEventListener('click', attack);
 }
 
+//Menu code
+
+let asideMenu = document.querySelector('aside');
+let menuButton = document.querySelectorAll('.aside-button');
+console.log(menuButton);
+menuButton.addEventListener('click', function(){
+  console.log('elo');
+  asideMenu.style.left = '0px';
+});
+
+
 
 // odpalamy funkcje
 allowAttackClick();
