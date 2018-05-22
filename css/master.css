@@ -131,6 +131,26 @@ header {
   }
 }
 
+/* SIDEBAR */
+
+aside {
+  position: absolute;
+  height: 100vh;
+  width: 50px;
+  background: rgb(176, 32, 0);
+  left: -50px;
+}
+
+.aside-button {
+  background: rgb(176, 32, 0);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 25px;
+  bottom: 50px;
+}
+
 /* main stuff */
 
 .container {
@@ -161,7 +181,7 @@ header {
   animation: slash 1s steps(16) running;
   /* animation-iteration-count: 1;
   animation-fill-mode: forwards; */
-    left: 39%;
+  left: 39%;
 }
 
 @keyframes slash {
@@ -169,7 +189,9 @@ header {
     background-position: -10340px;
   }
 }
+
 /* defend move */
+
 .defendRun {
   background: url('../img/defend.png') no-repeat;
   animation: def 1s steps(16) running;
@@ -180,6 +202,7 @@ header {
     background-position: -10340px;
   }
 }
+
 /* feint move */
 
 .feintRun {
@@ -190,7 +213,6 @@ header {
 @keyframes feint {
   100% {
     background-position: -10340px;
-
   }
 }
 
@@ -211,7 +233,6 @@ header {
   animation: slash 1s steps(16) running;
   /* animation-iteration-count: 1;
   animation-fill-mode: forwards; */
-
 }
 
 @keyframes monstaSlash {
@@ -219,7 +240,9 @@ header {
     background-position: -10340px;
   }
 }
+
 /* container for characters */
+
 .fight {
   width: 80%;
   height: 100%;
@@ -261,10 +284,9 @@ footer {
   bottom: 0;
   position: fixed;
   display: flex;
-  /* background: rgb(159, 6, 6); */
+  z-index: 2;
   border-radius: 20px;
   margin-bottom: 2px;
-
 }
 
 .action {
@@ -280,19 +302,18 @@ footer {
   text-align: center;
   border-radius: 20px;
 }
+
 .action span {
-
   display: table;
-  width:114px;
-
+  width: 114px;
 }
 
-.iconSkull{
-    background: url('../img/skulla.png') no-repeat;
+.iconSkull {
+  background: url('../img/skulla.png') no-repeat;
 }
 
-.iconDefend{
-    background: url('../img/shield.png') no-repeat;
+.iconDefend {
+  background: url('../img/shield.png') no-repeat;
 }
 
 .actionIcon {
@@ -304,10 +325,10 @@ footer {
 }
 
 .action:hover {
-    color: red;
+  color: red;
   margin-top: -58px;
-
 }
+
 .action .actionIcon:hover {
   height: 80%;
 }
