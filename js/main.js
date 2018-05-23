@@ -50,7 +50,7 @@ function attackVsFeint() {
     healthLeft.style.width = healthCountLeft + '%';
     fatality(); //checking if health === 0
     allowAttackClick(); // podpięcie ponowne animacji ataku
-  }, 1400); // this time is a delay for health bar animation
+  }, 1700); // this time is a delay for health bar animation
 }
 
 //attack vs block
@@ -169,14 +169,15 @@ function disallowAttackClick() {
 
 
 console.log(menuButton);
-menuButton.addEventListener('click', showMenu);
+menuButton.addEventListener('click', showMenu );
 
-function showMenu() {
+function showMenu () {
   if (asideMenu.style.left !== '0px') {
-    asideMenu.style.left = '0px';
-  } else {
-    asideMenu.style.left = '-50px';
+      asideMenu.style.left = '0px';
   }
+ else {
+   asideMenu.style.left = '-50px';
+ }
 }
 
 
