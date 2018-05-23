@@ -141,7 +141,6 @@ aside {
   background: rgb(176, 32, 0);
   left: -50px;
   transition: all 1s;
-
 }
 
 .aside-button {
@@ -303,7 +302,6 @@ footer {
 .action {
   width: 122px;
   height: 122px;
-  background: black;
   margin: auto;
   font-size: 1.6em;
   padding: 5px 5px 5px 5px;
@@ -317,6 +315,8 @@ footer {
 .action span {
   display: table;
   width: 114px;
+  opacity: 0;
+  transition: all 1s;
 }
 
 .iconSkull {
@@ -331,15 +331,40 @@ footer {
   display: block;
   background-size: contain;
   background-position: center;
-  height: 70%;
-  transition: all 0.5s;
+  height: 80px;
+  width: 80px;
+  margin: 0 auto;
+  transition: all 0.8s;
+  animation: pulse 4s infinite ease;
+  border-radius: 50%;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(176, 32, 0, 0.4);
+    background-color: rgba(176, 32, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(227, 60, 60, 0);
+    ;
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(227, 60, 60, 0);
+
+  }
 }
 
 .action:hover {
-  color: red;
   margin-top: -58px;
 }
 
+.action:hover span {
+  opacity: 1;
+
+}
+
 .action .actionIcon:hover {
-  height: 80%;
+  background-color: rgb(176, 32, 0);
+  border-radius: 50%;
+  animation: pulse 1s infinite ;
 }
