@@ -152,6 +152,10 @@ aside {
   bottom: 50px;
 }
 
+.sidebar ul li {
+  color: white;
+}
+
 /* main stuff */
 
 .container {
