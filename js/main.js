@@ -12,7 +12,7 @@ let defend = document.querySelector('.defend');
 let feint = document.querySelector('.feint');
 //sounds
 let evil = new Audio('./snd/evilsound.mp3');
-let heroAtakSound = new Audio('./snd/slash.wav');
+let heroAtakSound = new Audio('./snd/slash2.mp3');
 let heroBlockSound = new Audio('./snd/colision.mp3');
 let fatalitySnd = new Audio('./snd/fatality.mp3');
 
@@ -169,15 +169,14 @@ function disallowAttackClick() {
 
 
 console.log(menuButton);
-menuButton.addEventListener('click', showMenu );
+menuButton.addEventListener('click', showMenu);
 
-function showMenu () {
+function showMenu() {
   if (asideMenu.style.left !== '0px') {
-      asideMenu.style.left = '0px';
+    asideMenu.style.left = '0px';
+  } else {
+    asideMenu.style.left = '-50px';
   }
- else {
-   asideMenu.style.left = '-50px';
- }
 }
 
 
