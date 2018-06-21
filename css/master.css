@@ -137,9 +137,9 @@ header {
 aside {
   position: absolute;
   height: 100vh;
-  width: 50px;
+  width: 100px;
   background: rgb(176, 32, 0);
-  left: -50px;
+  left: -100px;
   transition: all 1s;
 }
 
@@ -149,7 +149,7 @@ aside {
   width: 50px;
   height: 50px;
   position: absolute;
-  left: 25px;
+  right: -25px;
   bottom: 50px;
   animation: pulse 4s infinite ease;
 }

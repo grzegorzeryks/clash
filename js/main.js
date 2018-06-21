@@ -119,7 +119,6 @@ function checkWinner() {
         win.style.display = 'none';
       }, 2000);
     }, 2000);
-
   }
 }
 
@@ -180,14 +179,14 @@ function disallowAttackClick() {
 //Menu code
 
 
-console.log(menuButton);
+
 menuButton.addEventListener('click', showMenu);
 
 function showMenu() {
   if (asideMenu.style.left !== '0px') {
     asideMenu.style.left = '0px';
   } else {
-    asideMenu.style.left = '-50px';
+    asideMenu.style.left = '-100px';
   }
 }
 
