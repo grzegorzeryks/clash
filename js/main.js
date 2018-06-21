@@ -48,9 +48,13 @@ function attackVsFeint() {
     monsta.classList.remove('monstaRun');
     healthCountLeft = healthCountLeft - 25;
     healthLeft.style.width = healthCountLeft + '%';
-    fatality(); //checking if health === 0
     allowAttackClick(); // podpięcie ponowne animacji ataku
+
+    console.log(healthCountLeft);
+    fatality();
+
   }, 1700); // this time is a delay for health bar animation
+  checkWinner();
 }
 
 //attack vs block
@@ -81,6 +85,7 @@ function feintVsBlock() {
 
 function fatality() {
   if (healthCountLeft === 0) {
+    console.log('fatality inititated');
     fatalitySnd.play();
     setTimeout(() => {
       healthLeft.classList.add('skullmove');
@@ -93,7 +98,10 @@ function fatality() {
 
 //funkcja sprawdzajaca czy życie = 0
 function checkWinner() {
-  if (healthCountLeft === 0) {
+  if (healthCountLeft <= 0) {
+    console.log('checking winner');
+
+
     setTimeout(() => {
       win.style.display = 'block';
       win.style.animationPlayState = 'running';
@@ -119,8 +127,6 @@ function restoreMonsterToFullHealth() {
 function attack() {
   myAction = 1;
   randomAttack(); //odpalamy funkcje porwonujaca atak z randomem przeciwnika
-
-  checkWinner();
   console.log(myAction + ' my action');
 }
 
@@ -129,6 +135,7 @@ function defenseAction() {
   myAction = 2;
   randomAttack();
   checkWinner();
+  console.log(myAction + ' my action');
 }
 
 //głowna funkcja zmyłki
@@ -136,6 +143,7 @@ function feintAction() {
   myAction = 0;
   randomAttack();
   checkWinner();
+  console.log(myAction + ' my action');
 }
 // funkcje dopinające i odpinające defendAction
 function allowDefendClick() {
@@ -169,15 +177,14 @@ function disallowAttackClick() {
 
 
 console.log(menuButton);
-menuButton.addEventListener('click', showMenu );
+menuButton.addEventListener('click', showMenu);
 
-function showMenu () {
+function showMenu() {
   if (asideMenu.style.left !== '0px') {
-      asideMenu.style.left = '0px';
+    asideMenu.style.left = '0px';
+  } else {
+    asideMenu.style.left = '-50px';
   }
- else {
-   asideMenu.style.left = '-50px';
- }
 }
 
 
