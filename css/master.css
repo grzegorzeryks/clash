@@ -326,6 +326,10 @@ footer {
 .iconDefend {
   background: url('../img/shield.png') no-repeat;
 }
+.iconFeint  {
+  background: url('../img/joker.png') no-repeat;
+}
+
 
 .actionIcon {
   display: block;
