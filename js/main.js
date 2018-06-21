@@ -53,7 +53,7 @@ function attackVsFeint() {
     console.log(healthCountLeft);
     fatality(); //checking if health zero, fatality initiated
 
-  }, 1700); // this time is a delay for health bar animation
+  }, 1400); // this time is a delay for health bar animation
   checkWinner();
 }
 
@@ -74,15 +74,17 @@ function attackVsBlock() {
 function feintVsBlock() {
   hero.classList.add('feintRun');
   heroAtakSound.play();
+  monsta.classList.add('monstaRun');
   disallowFeintClick();
   setTimeout(function() {
     hero.classList.remove('feintRun');
+    monsta.classList.remove('monstaRun');
     healthCountLeft = healthCountLeft - 25;
     healthLeft.style.width = healthCountLeft + '%';
     allowFeintClick();
     fatality();
   }, 1400);
-    checkWinner();
+  checkWinner();
 }
 
 
@@ -138,7 +140,6 @@ function attack() {
 function defenseAction() {
   myAction = 2;
   randomAttack();
-  checkWinner();
   console.log(myAction + ' my action');
 }
 
@@ -146,7 +147,6 @@ function defenseAction() {
 function feintAction() {
   myAction = 0;
   randomAttack();
-  checkWinner();
   console.log(myAction + ' my action');
 }
 // funkcje dopinające i odpinające defendAction
