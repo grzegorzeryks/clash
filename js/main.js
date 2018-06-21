@@ -51,7 +51,7 @@ function attackVsFeint() {
     allowAttackClick(); // podpięcie ponowne animacji ataku
 
     console.log(healthCountLeft);
-    fatality();
+    fatality(); //checking if health zero, fatality initiated
 
   }, 1700); // this time is a delay for health bar animation
   checkWinner();
@@ -77,8 +77,12 @@ function feintVsBlock() {
   disallowFeintClick();
   setTimeout(function() {
     hero.classList.remove('feintRun');
+    healthCountLeft = healthCountLeft - 25;
+    healthLeft.style.width = healthCountLeft + '%';
     allowFeintClick();
+    fatality();
   }, 1400);
+    checkWinner();
 }
 
 
@@ -96,7 +100,7 @@ function fatality() {
 
 
 
-//funkcja sprawdzajaca czy życie = 0
+//funkcja sprawdzajaca czy życie < 0
 function checkWinner() {
   if (healthCountLeft <= 0) {
     console.log('checking winner');
