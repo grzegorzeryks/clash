@@ -252,6 +252,11 @@ aside {
   }
 }
 
+.monstaAtack {
+  background: url('../img/monsta_atak.png') no-repeat;
+  animation: slash 1s steps(16) running;
+}
+
 /* container for characters */
 
 .fight {
@@ -326,10 +331,10 @@ footer {
 .iconDefend {
   background: url('../img/shield.png') no-repeat;
 }
-.iconFeint  {
+
+.iconFeint {
   background: url('../img/joker.png') no-repeat;
 }
-
 
 .actionIcon {
   display: block;
@@ -346,11 +351,9 @@ footer {
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(176, 32, 0, 0.4);
-
   }
   70% {
     box-shadow: 0 0 0 20px rgba(227, 60, 60, 0);
-
   }
   100% {
     box-shadow: 0 0 0 20px rgba(227, 60, 60, 0);

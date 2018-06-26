@@ -5,7 +5,9 @@ let menuButton = document.querySelector('.aside-button');
 let monsta = document.querySelector('.monsta');
 let hero = document.querySelector('.hero');
 let healthLeft = document.querySelector('.health-left');
+let healthRight = document.querySelector('.health-right');
 let healthCountLeft = 100;
+let healthCountRight = 100;
 let win = document.querySelector('.win');
 let atak = document.querySelector('.atak');
 let defend = document.querySelector('.defend');
@@ -26,6 +28,8 @@ function randomAttack() {
   let enemyAction = Math.floor(Math.random() * 3);
   if (enemyAction === 0 && myAction === 1) {
     attackVsFeint();
+  } else if (enemyAction === 0 && myAction === 2) {
+    feintVsAttack();
   } else if (enemyAction === 1 && myAction === 0) {
     feintVsBlock();
   } else if (enemyAction === 1 && myAction === 2) {
@@ -148,6 +152,27 @@ function feintAction() {
   randomAttack();
   console.log(myAction + ' my action');
 }
+
+// Monster win actions
+function feintVsAttack() {
+  hero.classList.add('defendRun');
+  heroAtakSound.play();
+  monsta.classList.add('monstaAtack');
+  disallowFeintClick();
+  setTimeout(function() {
+    hero.classList.remove('defendRun');
+    monsta.classList.remove('monstaAtack');
+    healthCountRight = healthCountRight - 25;
+    console.log(healthCountRight);
+    healthRight.style.width = healthCountRight + '%';
+    allowFeintClick();
+    fatality();
+  }, 1400);
+  checkWinner();
+}
+
+
+
 // funkcje dopinające i odpinające defendAction
 function allowDefendClick() {
   defend.addEventListener('click', defenseAction);
