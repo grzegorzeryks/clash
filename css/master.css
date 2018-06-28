@@ -28,8 +28,7 @@ body {
       position: absolute;
       top: 400px;
       display: block;
-      font-size: 2em;
-      width: 60%;
+      font-size: 3em;
       color: rgb(181, 5, 5);
       visibility: visible;
     }
