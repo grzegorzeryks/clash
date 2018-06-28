@@ -219,6 +219,7 @@ aside {
 .feintRun {
   background: url('../img/feint.png') no-repeat;
   animation: feint 1s steps(16) running;
+  left: 39%;
 }
 
 @keyframes feint {
