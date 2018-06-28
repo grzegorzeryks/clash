@@ -15,6 +15,28 @@ body {
   /* font-family: 'Lato', sans-serif; */
 }
 
+.res-info {
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 1290px) {
+    .container {
+
+        visibility: hidden;
+    }
+    .res-info {
+      position: absolute;
+      top: 400px;
+      display: block;
+      font-size: 2em;
+      width: 60%;
+      color: rgb(181, 5, 5);
+      visibility: visible;
+    }
+}
+
+
+
 /* header */
 
 header {
