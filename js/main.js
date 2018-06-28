@@ -29,7 +29,7 @@ function randomAttack() {
   if (enemyAction === 0 && myAction === 1) {
     attackVsFeint();
   }
-else if (enemyAction === 2 && myAction === 2) {
+else if (enemyAction === 2 && myAction === 2 || enemyAction === 1 && myAction === 1 || enemyAction === 0 && myAction === 0 || enemyAction === 2 && myAction === 1) {
   tie();
 }
    else if (enemyAction === 0 && myAction === 2) {
