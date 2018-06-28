@@ -28,7 +28,11 @@ function randomAttack() {
   let enemyAction = Math.floor(Math.random() * 3);
   if (enemyAction === 0 && myAction === 1) {
     attackVsFeint();
-  } else if (enemyAction === 0 && myAction === 2) {
+  }
+else if (enemyAction === 2 && myAction === 2) {
+  tie();
+}
+   else if (enemyAction === 0 && myAction === 2) {
     feintVsAttack();
   } else if (enemyAction === 1 && myAction === 0) {
     feintVsBlock();
@@ -63,12 +67,13 @@ function attackVsFeint() {
 
 //attack vs block
 function attackVsBlock() {
-
+    monsta.classList.add('monstaAtack');
   hero.classList.add('defendRun');
   heroBlockSound.play();
   disallowDefendClick();
   setTimeout(function() {
     hero.classList.remove('defendRun');
+      monsta.classList.remove('monstaAtack');
     allowDefendClick();
   }, 1400);
 }
@@ -171,6 +176,18 @@ function feintVsAttack() {
   checkWinner();
 }
 
+// player vs monsta tie
+function tie() {
+  hero.classList.add('defendRun');
+  heroBlockSound.play();
+  monsta.classList.add('monstaDefend');
+  disallowDefendClick();
+  setTimeout(function() {
+    hero.classList.remove('defendRun');
+    monsta.classList.remove('monstaDefend');
+    allowDefendClick();
+  }, 1400);
+}
 
 
 // funkcje dopinające i odpinające defendAction

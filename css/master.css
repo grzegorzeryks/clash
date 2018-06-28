@@ -239,6 +239,7 @@ aside {
   left: 24%;
   z-index: 1;
 }
+/* change keyframes to one name */
 
 .monstaRun {
   animation: slash 1s steps(16) running;
@@ -254,6 +255,11 @@ aside {
 
 .monstaAtack {
   background: url('../img/monsta_atak.png') no-repeat;
+  animation: slash 1s steps(16) running;
+}
+
+.monstaDefend {
+  background: url('../img/monsta_defend.png') no-repeat;
   animation: slash 1s steps(16) running;
 }
 
