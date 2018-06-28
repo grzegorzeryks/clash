@@ -12,6 +12,8 @@ let win = document.querySelector('.win');
 let atak = document.querySelector('.atak');
 let defend = document.querySelector('.defend');
 let feint = document.querySelector('.feint');
+let rightAction = document.querySelector('.right-action');
+
 //sounds
 let evil = new Audio('./snd/evilsound.mp3');
 let heroAtakSound = new Audio('./snd/slash2.mp3');
@@ -48,14 +50,16 @@ function attackVsFeint() {
   hero.classList.add('slashRun');
   monsta.classList.add('monstaRun');
   disallowAttackClick(); //odpinam funkcje
-
+  console.log('disallow click');
   setTimeout(function() {
     hero.classList.remove('slashRun');
     monsta.classList.remove('monstaRun');
     healthCountLeft = healthCountLeft - 25;
     healthLeft.style.width = healthCountLeft + '%';
-    allowAttackClick(); // podpięcie ponowne animacji ataku
-
+ // podpięcie ponowne animacji ataku
+    setTimeout(function(){
+          allowAttackClick();
+    }, 1300);
     console.log(healthCountLeft);
     fatality(); //checking if health zero, fatality initiated
 
@@ -137,6 +141,10 @@ function restoreMonsterToFullHealth() {
 
 //głowna funkcja ataku (atak vs feint)
 function attack() {
+  rightAction.classList.add('right-action-show');
+  setTimeout(function(){
+    rightAction.classList.remove('right-action-show');
+  }, 1400);
   myAction = 1;
   randomAttack(); //odpalamy funkcje porwonujaca atak z randomem przeciwnika
   console.log(myAction + ' my action');
@@ -214,6 +222,8 @@ function allowAttackClick() {
 // funkcja odpinajaca atak
 function disallowAttackClick() {
   atak.removeEventListener('click', attack);
+
+
 }
 
 //Menu code
