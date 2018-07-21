@@ -139,12 +139,21 @@ function restoreMonsterToFullHealth() {
   healthLeft.style.width = restart;
 }
 
-//głowna funkcja ataku (atak vs feint)
-function attack() {
+// show action function
+function showAction(){
   rightAction.classList.add('right-action-show');
   setTimeout(function(){
     rightAction.classList.remove('right-action-show');
   }, 1400);
+}
+
+function showEnemyAction(){
+  
+}
+
+//głowna funkcja ataku
+function attack() {
+  showAction();
   myAction = 1;
   randomAttack(); //odpalamy funkcje porwonujaca atak z randomem przeciwnika
   console.log(myAction + ' my action');

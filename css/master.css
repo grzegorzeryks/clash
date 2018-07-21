@@ -20,21 +20,18 @@ body {
 }
 
 @media only screen and (max-width: 1290px) {
-    .container {
-
-        visibility: hidden;
-    }
-    .res-info {
-      position: absolute;
-      top: 400px;
-      display: block;
-      font-size: 3em;
-      color: rgb(181, 5, 5);
-      visibility: visible;
-    }
+  .container {
+    visibility: hidden;
+  }
+  .res-info {
+    position: absolute;
+    top: 400px;
+    display: block;
+    font-size: 3em;
+    color: rgb(181, 5, 5);
+    visibility: visible;
+  }
 }
-
-
 
 /* header */
 
@@ -196,9 +193,9 @@ aside {
   width: 100%;
 }
 
-.right-action{
+.right-action {
   position: absolute;
-  right: 220px;
+  right: 10%;
   top: -203px;
   color: rgb(176, 32, 0);
   font-size: 2em;
@@ -206,11 +203,10 @@ aside {
   /* display: none; */
 }
 
-.right-action-show{
+.right-action-show {
   font-size: 6em;
   top: 250px;
 }
-
 
 /* slash attack */
 
@@ -277,12 +273,11 @@ aside {
   left: 24%;
   z-index: 1;
 }
+
 /* change keyframes to one name */
 
 .monstaRun {
   animation: slash 1s steps(16) running;
-  /* animation-iteration-count: 1;
-  animation-fill-mode: forwards; */
 }
 
 @keyframes monstaSlash {
