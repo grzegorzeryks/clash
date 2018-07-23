@@ -198,14 +198,14 @@ aside {
   right: 10%;
   top: -203px;
   color: rgb(176, 32, 0);
-  font-size: 2em;
+  font-size: 1em;
   transition: all 0.5s;
   /* display: none; */
 }
 
 .right-action-show {
-  font-size: 6em;
-  top: 250px;
+  font-size: 4em;
+  top: 150px;
 }
 
 /* slash attack */
