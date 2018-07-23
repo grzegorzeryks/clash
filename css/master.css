@@ -203,9 +203,11 @@ aside {
   /* display: none; */
 }
 
+.left-action {}
+
 .right-action-show {
   font-size: 4em;
-  top: 150px;
+  top: 110px;
 }
 
 /* slash attack */

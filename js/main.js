@@ -140,20 +140,18 @@ function restoreMonsterToFullHealth() {
 }
 
 // show action function
-function showAction(){
+function showAction(e){
   rightAction.classList.add('right-action-show');
+  rightAction.innerHTML = '<p>'+ e +'</p>';
   setTimeout(function(){
     rightAction.classList.remove('right-action-show');
   }, 1400);
 }
 
-function showEnemyAction(){
-
-}
 
 //głowna funkcja ataku
 function attack() {
-  showAction();
+  showAction('Atak!');
   myAction = 1;
   randomAttack(); //odpalamy funkcje porwonujaca atak z randomem przeciwnika
   console.log(myAction + ' my action');
@@ -161,6 +159,7 @@ function attack() {
 
 //głowna funkcja obrony
 function defenseAction() {
+  showAction('Obrona!');
   myAction = 2;
   randomAttack();
   console.log(myAction + ' my action');
@@ -168,6 +167,7 @@ function defenseAction() {
 
 //głowna funkcja zmyłki
 function feintAction() {
+  showAction('Zmylka!');
   myAction = 0;
   randomAttack();
   console.log(myAction + ' my action');
