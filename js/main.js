@@ -37,7 +37,7 @@ function randomAttack() {
   } else if (enemyAction === 1 && myAction === 0) {
     feintVsBlock();
   } else if (enemyAction === 1 && myAction === 2) {
-    attackVsBlock();
+    tie();
   }
   console.log(enemyAction + ' enemy action');
 }
@@ -81,9 +81,9 @@ function attackVsBlock() {
 }
 
 
-//,onster feint vs hero defence
+//feint vs defence
 function feintVsBlock() {
-  hero.classList.add('lose');
+  hero.classList.add('feintRun');
   heroAtakSound.play();
   monsta.classList.add('monstaRun');
   disallowFeintClick();
@@ -175,12 +175,12 @@ function feintAction() {
 
 // Monster win actions
 function feintVsAttack() {
-  hero.classList.add('defendRun');
+  hero.classList.add('lose');
   heroAtakSound.play();
   monsta.classList.add('monstaAtack');
   disallowFeintClick();
   setTimeout(function() {
-    hero.classList.remove('defendRun');
+    hero.classList.remove('lose');
     monsta.classList.remove('monstaAtack');
     healthCountRight = healthCountRight - 25;
     console.log(healthCountRight);
