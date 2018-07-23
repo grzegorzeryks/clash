@@ -255,6 +255,12 @@ aside {
   left: 39%;
 }
 
+.lose {
+  background: url('../img/lose.png') no-repeat;
+  animation: feint 1s steps(16) running;
+  left: 39%;
+}
+
 @keyframes feint {
   100% {
     background-position: -10340px;

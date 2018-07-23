@@ -81,9 +81,9 @@ function attackVsBlock() {
 }
 
 
-//feint vs defence
+//,onster feint vs hero defence
 function feintVsBlock() {
-  hero.classList.add('feintRun');
+  hero.classList.add('lose');
   heroAtakSound.play();
   monsta.classList.add('monstaRun');
   disallowFeintClick();
@@ -148,7 +148,7 @@ function showAction(){
 }
 
 function showEnemyAction(){
-  
+
 }
 
 //głowna funkcja ataku
