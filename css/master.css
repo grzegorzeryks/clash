@@ -200,10 +200,17 @@ aside {
   color: rgb(176, 32, 0);
   font-size: 1em;
   transition: all 0.5s;
-  /* display: none; */
+
 }
 
-.left-action {}
+.left-action {
+  position: absolute;
+  left: 10%;
+  top: -203px;
+  color: rgb(176, 32, 0);
+  font-size: 1em;
+  transition: all 0.5s;
+}
 
 .right-action-show {
   font-size: 4em;

@@ -13,7 +13,7 @@ let atak = document.querySelector('.atak');
 let defend = document.querySelector('.defend');
 let feint = document.querySelector('.feint');
 let rightAction = document.querySelector('.right-action');
-
+let leftAction = document.querySelector('.left-action');
 //sounds
 let evil = new Audio('./snd/evilsound.mp3');
 let heroAtakSound = new Audio('./snd/slash2.mp3');
@@ -28,6 +28,7 @@ let myAction = 0;
 // random enemyAction attack function
 function randomAttack() {
   let enemyAction = Math.floor(Math.random() * 3);
+  showEnemyAction(enemyAction);
   if (enemyAction === 0 && myAction === 1) {
     attackVsFeint();
   } else if (enemyAction === 2 && myAction === 2 || enemyAction === 1 && myAction === 1 || enemyAction === 0 && myAction === 0 || enemyAction === 2 && myAction === 1) {
@@ -35,11 +36,36 @@ function randomAttack() {
   } else if (enemyAction === 0 && myAction === 2) {
     feintVsAttack();
   } else if (enemyAction === 1 && myAction === 0) {
-    feintVsBlock();
+    feintVsAttack();
   } else if (enemyAction === 1 && myAction === 2) {
     tie();
   }
+  else if (enemyAction === 2 && myAction === 0) {
+    attackVsFeint();
+  }
   console.log(enemyAction + ' enemy action');
+
+}
+
+//showEnemyAction
+function showEnemyAction(e) {
+  if (e === 1) {
+    showEnemyActionInner('Atak!');
+  }
+  else if (e === 2) {
+    showEnemyActionInner('Obrona!');
+  }
+  else {
+    showEnemyActionInner('Sztuczka!');
+  }
+}
+
+function showEnemyActionInner(el){
+  leftAction.classList.add('right-action-show');
+  leftAction.innerHTML = '<p>' + el + '</p>';
+  setTimeout(function() {
+    leftAction.classList.remove('right-action-show');
+  }, 1400);
 }
 
 
@@ -56,9 +82,9 @@ function attackVsFeint() {
     monsta.classList.remove('monstaRun');
     healthCountLeft = healthCountLeft - 25;
     healthLeft.style.width = healthCountLeft + '%';
- // podpięcie ponowne animacji ataku
-    setTimeout(function(){
-          allowAttackClick();
+    // podpięcie ponowne animacji ataku
+    setTimeout(function() {
+      allowAttackClick();
     }, 1300);
     console.log(healthCountLeft);
     fatality(); //checking if health zero, fatality initiated
@@ -113,6 +139,7 @@ function fatality() {
 
 
 
+
 //funkcja sprawdzajaca czy życie < 0
 function checkWinner() {
   if (healthCountLeft <= 0) {
@@ -131,6 +158,9 @@ function checkWinner() {
       }, 2000);
     }, 2000);
   }
+  else if (healthCountRight <= 0) {
+    console.log('You loose');
+  }
 }
 
 function restoreMonsterToFullHealth() {
@@ -140,13 +170,15 @@ function restoreMonsterToFullHealth() {
 }
 
 // show action function
-function showAction(e){
+function showAction(e) {
   rightAction.classList.add('right-action-show');
-  rightAction.innerHTML = '<p>'+ e +'</p>';
-  setTimeout(function(){
+  rightAction.innerHTML = '<p>' + e + '</p>';
+  setTimeout(function() {
     rightAction.classList.remove('right-action-show');
   }, 1400);
 }
+
+
 
 
 //głowna funkcja ataku
@@ -167,7 +199,7 @@ function defenseAction() {
 
 //głowna funkcja zmyłki
 function feintAction() {
-  showAction('Zmylka!');
+  showAction('Sztuczka!');
   myAction = 0;
   randomAttack();
   console.log(myAction + ' my action');
