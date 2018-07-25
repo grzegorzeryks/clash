@@ -303,17 +303,28 @@ function disallowAttackClick() {
 
 //Menu code
 
-
+let sarmackiLogo = document.querySelector('.sarmacki-logo');
 
 menuButton.addEventListener('click', showMenu);
 
 function showMenu() {
   if (asideMenu.style.left !== '0px') {
     asideMenu.style.left = '0px';
+    setTimeout(function(
+    ) {
+      sarmackiLogo.style.left = '-40px';
+    }, 600);
   } else {
     asideMenu.style.left = '-125px';
+    setTimeout(function(
+    ) {
+      sarmackiLogo.style.left = '-255px';
+    }, 600);
   }
 }
+
+
+
 
 
 // odpalamy funkcje
