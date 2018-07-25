@@ -20,6 +20,7 @@ let heroAtakSound = new Audio('./snd/slash2.mp3');
 let heroBlockSound = new Audio('./snd/colision.mp3');
 let fatalitySnd = new Audio('./snd/fatality.mp3');
 let loseSound = new Audio('./snd/evillaugh.mp3');
+let eagleSound = new Audio ('./snd/eagle.mp3');
 
 let myAction = 0;
 // enemyaction = 0 feint
@@ -142,6 +143,7 @@ function fatality() {
     footerElement.classList.add('hide-footer');
     fatalityButton.style.bottom = '30px';
     fatalityButton.addEventListener('click', function() {
+      eagleSound.play();
       eagleAnimation.classList.add('orel-fly');
       heroAtakSound.play();
       monsta.classList.add('monstaRun');
