@@ -32,7 +32,7 @@ function randomAttack() {
   let enemyAction = Math.floor(Math.random() * 3);
   showEnemyAction(enemyAction);
   if (enemyAction === 0 && myAction === 1) {
-    heroBlockSound.play();
+
     attackVsFeint();
   } else if (enemyAction === 2 && myAction === 2 || enemyAction === 1 && myAction === 1 || enemyAction === 0 && myAction === 0) {
     tie();
@@ -47,6 +47,7 @@ function randomAttack() {
 
     attackVsFeint();
   } else if (enemyAction === 2 && myAction === 1) {
+    heroBlockSound.play();
     feintVsAttack()
   }
 
