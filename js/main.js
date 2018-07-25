@@ -20,7 +20,7 @@ let heroAtakSound = new Audio('./snd/slash2.mp3');
 let heroBlockSound = new Audio('./snd/colision.mp3');
 let fatalitySnd = new Audio('./snd/fatality.mp3');
 let loseSound = new Audio('./snd/evillaugh.mp3');
-let eagleSound = new Audio ('./snd/eagle.mp3');
+let eagleSound = new Audio('./snd/eagle.mp3');
 
 let myAction = 0;
 // enemyaction = 0 feint
@@ -32,6 +32,7 @@ function randomAttack() {
   let enemyAction = Math.floor(Math.random() * 3);
   showEnemyAction(enemyAction);
   if (enemyAction === 0 && myAction === 1) {
+    heroBlockSound.play();
     attackVsFeint();
   } else if (enemyAction === 2 && myAction === 2 || enemyAction === 1 && myAction === 1 || enemyAction === 0 && myAction === 0) {
     tie();
@@ -40,8 +41,10 @@ function randomAttack() {
   } else if (enemyAction === 1 && myAction === 0) {
     feintVsAttack();
   } else if (enemyAction === 1 && myAction === 2) {
+    heroBlockSound.play();
     attackVsFeint();
   } else if (enemyAction === 2 && myAction === 0) {
+
     attackVsFeint();
   } else if (enemyAction === 2 && myAction === 1) {
     feintVsAttack()
@@ -312,14 +315,12 @@ menuButton.addEventListener('click', showMenu);
 function showMenu() {
   if (asideMenu.style.left !== '0px') {
     asideMenu.style.left = '0px';
-    setTimeout(function(
-    ) {
+    setTimeout(function() {
       sarmackiLogo.style.left = '-40px';
     }, 600);
   } else {
     asideMenu.style.left = '-125px';
-    setTimeout(function(
-    ) {
+    setTimeout(function() {
       sarmackiLogo.style.left = '-255px';
     }, 600);
   }
