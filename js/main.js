@@ -31,7 +31,7 @@ function randomAttack() {
   showEnemyAction(enemyAction);
   if (enemyAction === 0 && myAction === 1) {
     attackVsFeint();
-  } else if (enemyAction === 2 && myAction === 2 || enemyAction === 1 && myAction === 1 || enemyAction === 0 && myAction === 0 || enemyAction === 2 && myAction === 1) {
+  } else if (enemyAction === 2 && myAction === 2 || enemyAction === 1 && myAction === 1 || enemyAction === 0 && myAction === 0 ){
     tie();
   } else if (enemyAction === 0 && myAction === 2) {
     feintVsAttack();
@@ -42,6 +42,9 @@ function randomAttack() {
   }
   else if (enemyAction === 2 && myAction === 0) {
     attackVsFeint();
+  }
+  else if (enemyAction === 2 && myAction === 1) {
+    feintVsAttack()
   }
   console.log(enemyAction + ' enemy action');
 

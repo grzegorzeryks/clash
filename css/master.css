@@ -200,7 +200,6 @@ aside {
   color: rgb(176, 32, 0);
   font-size: 1em;
   transition: all 0.5s;
-
 }
 
 .left-action {
@@ -215,6 +214,16 @@ aside {
 .right-action-show {
   font-size: 4em;
   top: 110px;
+}
+
+.orel {
+  background: url('../img/orel.png') no-repeat;
+  background-position: center;
+  width: 22%;
+  height: 42%;
+  position: absolute;
+  left: 67%;
+  top: -41%;
 }
 
 /* slash attack */
