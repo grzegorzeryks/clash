@@ -219,12 +219,34 @@ aside {
 .orel {
   background: url('../img/orel.png') no-repeat;
   background-position: center;
-  width: 22%;
-  height: 42%;
+  background-size: contain;
+  width: 28%;
+  height: 40%;
   position: absolute;
   left: 67%;
   top: -41%;
+  z-index: 1;
+  transition: all 1s;
 }
+
+.orel-fly {
+  left: 29%;
+  top: 7%;
+}
+
+.fatality-button {
+  background: rgba(176, 32, 0, 0.4);
+  border-radius: 30px;
+  color: white;
+  bottom: -200px;
+  position: fixed;
+  z-index: 2;
+  margin-bottom: 30px;
+  padding:0 20px;
+  font-size: 2rem;
+  animation: pulse 1s infinite ease;
+}
+
 
 /* slash attack */
 
@@ -365,6 +387,10 @@ footer {
   z-index: 2;
   border-radius: 20px 0;
   margin-bottom: 2px;
+}
+
+.hide-footer {
+  bottom: -200px;
 }
 
 .action {

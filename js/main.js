@@ -128,6 +128,11 @@ function feintVsBlock() {
 }
 
 
+//fatality action animation
+let fatalityButton = document.querySelector('.fatality-button');
+let eagleAnimation = document.querySelector('.orel');
+let footerElement = document.querySelector('footer');
+
 
 function fatality() {
   if (healthCountLeft === 0) {
@@ -136,9 +141,12 @@ function fatality() {
     setTimeout(() => {
       healthLeft.classList.add('skullmove');
     }, 500);
+    footerElement.classList.add('hide-footer');
+    fatalityButton.style.bottom = '30px';
   }
 
 }
+
 
 
 
