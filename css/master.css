@@ -221,10 +221,10 @@ aside {
   background-position: center;
   background-size: contain;
   width: 28%;
-  height: 40%;
+  height: 74%;
   position: absolute;
   left: 67%;
-  top: -41%;
+  top: -100%;
   z-index: 1;
   transition: all 1s;
 }
@@ -245,6 +245,7 @@ aside {
   padding:0 20px;
   font-size: 2rem;
   animation: pulse 1s infinite ease;
+  cursor: cell;
 }
 
 

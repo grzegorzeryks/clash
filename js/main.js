@@ -143,6 +143,20 @@ function fatality() {
     }, 500);
     footerElement.classList.add('hide-footer');
     fatalityButton.style.bottom = '30px';
+    fatalityButton.addEventListener('click', function(){
+      heroAtakSound.play();
+      eagleAnimation.classList.add('orel-fly');
+      monsta.classList.add('monstaRun');
+      healthCountLeft = healthCountLeft - 25;
+      console.log('enemy health'+healthCountLeft);
+      checkWinner();
+      setTimeout(() => {
+        eagleAnimation.classList.remove('orel-fly');
+        footerElement.classList.remove('hide-footer');
+        monsta.classList.remove('monstaRun');
+        fatalityButton.style.bottom = '-300px';
+      }, 3000);
+    });
   }
 
 }
