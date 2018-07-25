@@ -155,10 +155,11 @@ header {
 aside {
   position: absolute;
   height: 100vh;
-  width: 100px;
+  width: 125px;
   background: rgb(176, 32, 0);
-  left: -100px;
+  left: -125px;
   transition: all 1s;
+  z-index: 1;
 }
 
 .aside-button {
@@ -176,9 +177,9 @@ aside {
   padding: 100px 0 0 0;
 }
 
-.sidebar ul li {
+/* .sidebar ul li {
   color: white;
-}
+} */
 
 /* main stuff */
 
@@ -246,6 +247,7 @@ aside {
   font-size: 2rem;
   animation: pulse 1s infinite ease;
   cursor: cell;
+  transition: 1s all;
 }
 
 

@@ -19,6 +19,7 @@ let evil = new Audio('./snd/evilsound.mp3');
 let heroAtakSound = new Audio('./snd/slash2.mp3');
 let heroBlockSound = new Audio('./snd/colision.mp3');
 let fatalitySnd = new Audio('./snd/fatality.mp3');
+let loseSound = new Audio('./snd/evillaugh.mp3');
 
 let myAction = 0;
 // enemyaction = 0 feint
@@ -31,21 +32,20 @@ function randomAttack() {
   showEnemyAction(enemyAction);
   if (enemyAction === 0 && myAction === 1) {
     attackVsFeint();
-  } else if (enemyAction === 2 && myAction === 2 || enemyAction === 1 && myAction === 1 || enemyAction === 0 && myAction === 0 ){
+  } else if (enemyAction === 2 && myAction === 2 || enemyAction === 1 && myAction === 1 || enemyAction === 0 && myAction === 0) {
     tie();
   } else if (enemyAction === 0 && myAction === 2) {
     feintVsAttack();
   } else if (enemyAction === 1 && myAction === 0) {
     feintVsAttack();
   } else if (enemyAction === 1 && myAction === 2) {
-    tie();
-  }
-  else if (enemyAction === 2 && myAction === 0) {
     attackVsFeint();
-  }
-  else if (enemyAction === 2 && myAction === 1) {
+  } else if (enemyAction === 2 && myAction === 0) {
+    attackVsFeint();
+  } else if (enemyAction === 2 && myAction === 1) {
     feintVsAttack()
   }
+
   console.log(enemyAction + ' enemy action');
 
 }
@@ -54,16 +54,14 @@ function randomAttack() {
 function showEnemyAction(e) {
   if (e === 1) {
     showEnemyActionInner('Atak!');
-  }
-  else if (e === 2) {
+  } else if (e === 2) {
     showEnemyActionInner('Obrona!');
-  }
-  else {
+  } else {
     showEnemyActionInner('Sztuczka!');
   }
 }
 
-function showEnemyActionInner(el){
+function showEnemyActionInner(el) {
   leftAction.classList.add('right-action-show');
   leftAction.innerHTML = '<p>' + el + '</p>';
   setTimeout(function() {
@@ -143,17 +141,19 @@ function fatality() {
     }, 500);
     footerElement.classList.add('hide-footer');
     fatalityButton.style.bottom = '30px';
-    fatalityButton.addEventListener('click', function(){
-      heroAtakSound.play();
+    fatalityButton.addEventListener('click', function() {
       eagleAnimation.classList.add('orel-fly');
+      heroAtakSound.play();
       monsta.classList.add('monstaRun');
+      hero.classList.add('feintRun');
       healthCountLeft = healthCountLeft - 25;
-      console.log('enemy health'+healthCountLeft);
+      console.log('enemy health' + healthCountLeft);
       checkWinner();
       setTimeout(() => {
         eagleAnimation.classList.remove('orel-fly');
         footerElement.classList.remove('hide-footer');
         monsta.classList.remove('monstaRun');
+        hero.classList.remove('feintRun');
         fatalityButton.style.bottom = '-300px';
       }, 3000);
     });
@@ -183,15 +183,23 @@ function checkWinner() {
       }, 2000);
     }, 2000);
   }
+  //player lost
   else if (healthCountRight <= 0) {
-    console.log('You loose');
+    console.log('my health' + healthCountRight);
+    loseSound.play();
+    setTimeout(() => {
+      restoreMonsterToFullHealth();
+    }, 2000);
+
   }
 }
 
 function restoreMonsterToFullHealth() {
   healthCountLeft = 100;
+  healthCountRight = 100;
   let restart = healthCountLeft + '%';
   healthLeft.style.width = restart;
+  healthRight.style.width = restart;
 }
 
 // show action function
@@ -236,14 +244,15 @@ function feintVsAttack() {
   heroAtakSound.play();
   monsta.classList.add('monstaAtack');
   disallowFeintClick();
+  healthCountRight = healthCountRight - 25;
   setTimeout(function() {
     hero.classList.remove('lose');
     monsta.classList.remove('monstaAtack');
-    healthCountRight = healthCountRight - 25;
+
     console.log(healthCountRight);
     healthRight.style.width = healthCountRight + '%';
     allowFeintClick();
-    fatality();
+
   }, 1400);
   checkWinner();
 }
@@ -302,7 +311,7 @@ function showMenu() {
   if (asideMenu.style.left !== '0px') {
     asideMenu.style.left = '0px';
   } else {
-    asideMenu.style.left = '-100px';
+    asideMenu.style.left = '-125px';
   }
 }
 
